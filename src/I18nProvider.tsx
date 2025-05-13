@@ -1,7 +1,6 @@
-// src/I18nProvider.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import i18n, { Resource } from 'i18next';
-import { initReactI18next, I18nextProvider} from 'react-i18next';
+import { initReactI18next, I18nextProvider, Trans as ReactI18NextTrans } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 export interface I18nProviderProps {
@@ -35,7 +34,21 @@ export function I18nProvider({
     return inst;
   });
 
+  // Apply text direction based on selected language (e.g., RTL for Arabic)
+  useEffect(() => {
+    const setDirection = (language: string) => {
+      document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    };
+    // Set initial direction
+    setDirection(instance.language || fallbackLng);
+    // Update on language change
+    instance.on('languageChanged', setDirection);
+    return () => {
+      instance.off('languageChanged', setDirection);
+    };
+  }, [instance, fallbackLng]);
+
   return <I18nextProvider i18n={instance}>{children}</I18nextProvider>;
 }
 
-
+export const Trans = ReactI18NextTrans;

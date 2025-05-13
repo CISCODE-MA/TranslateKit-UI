@@ -1,7 +1,7 @@
 // translate-core/src/i18nSingleton.ts
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import { initReactI18next,Trans as ReactI18NextTrans } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 
 i18n
   // 1️⃣ detect user language from querystring, cookie, localStorage, navigator
@@ -20,11 +20,10 @@ i18n
       lookupQuerystring: 'lng',
       lookupCookie: 'i18next',
       lookupLocalStorage: 'i18nextLng',
-      caches: ['localStorage', 'cookie'],
+      caches: ['localStorage'],
       cookieMinutes: 10,
       cookieDomain: window.location.hostname
     }
   });
 
 export const i18nSingleton = i18n;
-export const Trans = ReactI18NextTrans;
