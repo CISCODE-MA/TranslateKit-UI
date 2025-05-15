@@ -1,5 +1,5 @@
 {
-  "name": "@ciscode-model/translate",
+  "name": "@ciscode-model/translate-core",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.umd.js",
@@ -22,9 +22,9 @@
   "license": "ISC",
   "peerDependencies": {
     "i18next": "^25.0.2",
+    "i18next-browser-languagedetector": "^8.1.0",
     "react": ">=18.0.0 <20.0.0 || ^19.0.0",
-    "react-i18next": "^15.5.1",
-    "i18next-browser-languagedetector": "^8.1.0"
+    "react-i18next": "^15.5.1"
   },
   "devDependencies": {
     "@types/node": "^22.13.1",

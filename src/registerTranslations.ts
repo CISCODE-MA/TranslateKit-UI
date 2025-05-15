@@ -1,4 +1,4 @@
-// registerTranslations.ts
+// translate-core/src/registerTranslations.ts
 import type { ResourceLanguage } from 'i18next';
 import i18n from 'i18next';
 

@@ -1,4 +1,4 @@
-//useT.ts
+// translate-core/src/useT.ts
 import { useTranslation } from 'react-i18next';
 
 /**
