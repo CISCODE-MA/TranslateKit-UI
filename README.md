@@ -1,44 +1,22 @@
-# React TypeScript DeveloperKit (Template)
+# Nothing Lib
 
-Template repository for building reusable React TypeScript **npm libraries**
-(components + hooks + utilities).
+# Introduction 
+TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-## What you get
+# Getting Started
+TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
+1.	Installation process
+2.	Software dependencies
+3.	Latest releases
+4.	API references
 
-- ESM + CJS + Types build (tsup)
-- Vitest testing
-- ESLint + Prettier (flat config)
-- Changesets (manual release flow, no automation PR)
-- Husky (pre-commit + pre-push)
-- Enforced public API via `src/index.ts`
-- Dependency-free styling (Tailwind-compatible by convention only)
-- `react` and `react-dom` as peerDependencies
+# Build and Test
+TODO: Describe and show how to build your code and run the tests. 
 
-## Package structure
+# Contribute
+TODO: Explain how other users and developers can contribute to make your code better. 
 
-- `src/components` – reusable UI components
-- `src/hooks` – reusable React hooks
-- `src/utils` – framework-agnostic utilities
-- `src/index.ts` – **only public API** (no deep imports allowed)
-
-Anything not exported from `src/index.ts` is considered private.
-
-## Scripts
-
-- `npm run build` – build to `dist/` (tsup)
-- `npm test` – run tests (vitest)
-- `npm run typecheck` – TypeScript typecheck
-- `npm run lint` – ESLint
-- `npm run format` / `npm run format:write` – Prettier
-- `npx changeset` – create a changeset
-
-## Release flow (summary)
-
-- Work on a `feature` branch from `develop`
-- Merge to `develop`
-- Add a changeset for user-facing changes: `npx changeset`
-- Promote `develop` → `master`
-- Tag `vX.Y.Z` to publish (npm OIDC)
-
-This repository is a **template**. Teams should clone it and focus only on
-library logic, not tooling or release mechanics.
+If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
+- [ASP.NET Core](https://github.com/aspnet/Home)
+- [Visual Studio Code](https://github.com/Microsoft/vscode)
+- [Chakra Core](https://github.com/Microsoft/ChakraCore)
