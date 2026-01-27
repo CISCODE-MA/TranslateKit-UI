@@ -53,4 +53,4 @@ export function I18nProvider({
 }
 
 export const Trans = ReactI18NextTrans;
-export const useTranslation = ReactI18NextuseTranslation;
+export { useTranslation } from 'react-i18next';
