@@ -7,6 +7,8 @@ export interface LanguageSelectorProps {
   supportedLangs?: string[];
   /** Optional CSS className for styling the <select> */
   className?: string;
+  /** Whether to show the translate bar */
+  showTranslateBar?: boolean; // New prop to control visibility
 }
 
 const defaultLangs = ['en', 'fr', 'es', 'ar', 'it'];
@@ -19,24 +21,36 @@ const defaultLangs = ['en', 'fr', 'es', 'ar', 'it'];
 export function LanguageSelectedLang({
   supportedLangs = defaultLangs,
   className,
+  showTranslateBar = true, // Default to true
 }: LanguageSelectorProps) {
   const { i18n } = useTranslation();
 
   const current = i18n.language || supportedLangs[0];
 
+  if (!showTranslateBar) {
+    return null; // Do not render if the bar is hidden
+  }
+
   return (
-    <select
-      value={current}
-      onChange={(e) => {
-        i18n.changeLanguage(e.target.value);
-      }}
-      className={className}
-    >
-      {supportedLangs.map((lng) => (
-        <option key={lng} value={lng}>
-          {lng.toUpperCase()}
-        </option>
-      ))}
-    </select>
+    <div>
+      <label htmlFor="language-selector" className="sr-only">
+        Select Language
+      </label>
+      <select
+        id="language-selector"
+        value={current}
+        onChange={(e) => {
+          i18n.changeLanguage(e.target.value);
+        }}
+        className={className}
+        aria-label="Language Selector"
+      >
+        {supportedLangs.map((lng) => (
+          <option key={lng} value={lng}>
+            {lng.toUpperCase()}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
