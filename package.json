@@ -1,5 +1,5 @@
 {
-  "name": "@ciscode/ui-translate-core",
+  "name": "@ciscode/ui-translate-kit",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.umd.js",
