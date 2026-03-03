@@ -1,12 +1,12 @@
-# Copilot Instructions - translate-core
+# Copilot Instructions - @ciscode/ui-translate-kit
 
-> **Purpose**: Development guidelines for translate-core - i18n provider and translation utilities.
+> **Purpose**: Development guidelines for @ciscode/ui-translate-kit - centralized i18n provider and translation utilities for React apps.
 
 ---
 
 ## 🎯 Package Overview
 
-**Package**: `@ciscode/ui-translate-core`  
+**Package**: `@ciscode/ui-translate-kit`  
 **Type**: React Frontend i18n Library  
 **Purpose**: Centralized internationalization and translation management for React apps
 
@@ -161,5 +161,8 @@ Always create a changeset using `npm run changeset`.
 
 ---
 
+---
+
 _Last Updated: March 3, 2026_
 _Version: 1.0.0_
+_Package**: @ciscode/ui-translate-kit_
