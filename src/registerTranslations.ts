@@ -11,11 +11,9 @@ import i18n from 'i18next';
  */
 export function registerTranslations(
   namespace: string,
-  bundles: Record<string, ResourceLanguage>   // <-- correct type
+  bundles: Record<string, ResourceLanguage>, // <-- correct type
 ) {
   Object.entries(bundles).forEach(([lng, res]) => {
     i18n.addResourceBundle(lng, namespace, res, /* deep */ true, /* overwrite */ true);
   });
 }
-
-

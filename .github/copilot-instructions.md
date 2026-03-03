@@ -39,16 +39,20 @@ src/
 ## 📝 Naming Conventions
 
 **Components**: `PascalCase.tsx`
+
 - `I18nProvider.tsx`
 - `LanguageSelectedLang.tsx`
 
 **Hooks**: `camelCase.ts` with `use` prefix
+
 - `useT.ts`
 
 **Functions**: `camelCase.ts`
+
 - `registerTranslations.ts`
 
 **Utilities**: `camelCase.ts`
+
 - `i18nSingleton.ts`
 
 ---
@@ -58,12 +62,14 @@ src/
 ### Coverage Target: 80%+
 
 **Unit Tests:**
+
 - ✅ Translation hook functionality
 - ✅ Language switching
 - ✅ Translation loading
 - ✅ Context providers
 
 **Integration Tests:**
+
 - ✅ End-to-end translation flow
 - ✅ Language persistence
 - ✅ Multi-language switching
@@ -73,18 +79,20 @@ src/
 ## 📚 Documentation
 
 ### JSDoc Required For:
+
 - All exported components
 - All exported hooks
 - All exported functions
 - All public utilities
 
 ### Example:
+
 ```typescript
 /**
  * Hook to access the translation function
  * @returns Translation function (key: string) => string
  */
-export function useT(): (key: string) => string
+export function useT(): (key: string) => string;
 ```
 
 ---
@@ -102,6 +110,7 @@ export function useT(): (key: string) => string
 ## 🔄 Development Workflow
 
 ### Branch Naming:
+
 ```bash
 feature/TC-123-add-language
 bugfix/TC-456-fix-translation
@@ -109,6 +118,7 @@ refactor/TC-789-improve-performance
 ```
 
 ### Before Publishing:
+
 - [ ] All tests passing
 - [ ] Coverage >= 80%
 - [ ] ESLint checks pass
@@ -140,11 +150,13 @@ Always create a changeset using `npm run changeset`.
 ## 🚫 Restrictions
 
 **NEVER without approval:**
+
 - Breaking changes to translation function signatures
 - Removing language support
 - Changing storage mechanism
 
 **CAN do autonomously:**
+
 - Adding new languages
 - Bug fixes
 - Performance improvements
@@ -155,7 +167,7 @@ Always create a changeset using `npm run changeset`.
 ## 💬 Communication
 
 - Brief and direct
-- This package affects all @ciscode/* apps
+- This package affects all @ciscode/\* apps
 - Coordinate language changes with design team
 - Flag breaking changes immediately
 
@@ -165,4 +177,4 @@ Always create a changeset using `npm run changeset`.
 
 _Last Updated: March 3, 2026_
 _Version: 1.0.0_
-_Package**: @ciscode/ui-translate-kit_
+_Package\*\*: @ciscode/ui-translate-kit_
