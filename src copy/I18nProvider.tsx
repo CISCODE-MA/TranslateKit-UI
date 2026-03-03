@@ -1,7 +1,12 @@
 //translate-core/src/I18nProvider.tsx
 import React, { useEffect } from 'react';
 import i18n, { Resource } from 'i18next';
-import { initReactI18next, I18nextProvider, Trans as ReactI18NextTrans, useTranslation as ReactI18NextuseTranslation } from 'react-i18next';
+import {
+  initReactI18next,
+  I18nextProvider,
+  Trans as ReactI18NextTrans,
+  useTranslation as ReactI18NextuseTranslation,
+} from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 export interface I18nProviderProps {

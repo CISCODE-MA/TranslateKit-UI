@@ -1,22 +1,78 @@
-# Nothing Lib
+# Translate Core Library
 
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+## Introduction
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+The Translate Core Library is a React-based library designed to provide internationalization (i18n) support for web applications. It includes components and utilities to manage language selection, translations, and accessibility features.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Getting Started
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Follow these steps to get the library up and running in your project:
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+### Installation
+
+Install the library and its peer dependencies:
+
+```bash
+npm install @ciscode/ui-translate-core react react-i18next i18next i18next-browser-languagedetector
+```
+
+### Software Dependencies
+
+- React 18+
+- i18next 25+
+- react-i18next 15+
+
+### Usage
+
+Wrap your application with the `I18nProvider` and use the `LanguageSelectedLang` component to enable language selection:
+
+```tsx
+import { I18nProvider, LanguageSelectedLang } from '@ciscode/ui-translate-core';
+
+<I18nProvider resources={resources} lng="en">
+  <LanguageSelectedLang />
+</I18nProvider>;
+```
+
+## Build and Test
+
+### Build
+
+To build the library for production:
+
+```bash
+npm run build
+```
+
+### Test
+
+Run unit and integration tests:
+
+```bash
+npm test
+```
+
+Run tests with coverage:
+
+```bash
+npm run test:cov
+```
+
+## Contribute
+
+We welcome contributions to improve the library. Follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Write tests for your changes.
+4. Submit a pull request.
+
+For detailed contribution guidelines, refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+## License
+
+This project is licensed under the ISC License.
+
+---
+
+For more information, refer to the [official documentation].

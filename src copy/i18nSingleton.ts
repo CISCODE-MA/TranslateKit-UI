@@ -12,9 +12,9 @@ i18n
   .init({
     fallbackLng: 'en',
     defaultNS: 'common',
-    resources: {},                  // feature-libs will register later
+    resources: {}, // feature-libs will register later
     interpolation: { escapeValue: false },
-    react: { useSuspense: false },  // or true if you handle suspense
+    react: { useSuspense: false }, // or true if you handle suspense
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'navigator'],
       lookupQuerystring: 'lng',
@@ -22,8 +22,8 @@ i18n
       lookupLocalStorage: 'i18nextLng',
       caches: ['localStorage'],
       cookieMinutes: 10,
-      cookieDomain: window.location.hostname
-    }
+      cookieDomain: window.location.hostname,
+    },
   });
 
 export const i18nSingleton = i18n;
