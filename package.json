@@ -16,13 +16,20 @@
     }
   },
   "scripts": {
-    "build": "vite build & tsc",
+    "clean": "rm -rf dist coverage",
+    "build": "vite build && tsc",
     "dev": "vite",
-    "test": "vitest",
-    "test:cov": "vitest --coverage",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "tsc --watch --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:cov": "vitest run --coverage",
+    "verify": "npm run lint && npm run typecheck && npm run test:cov",
+    "prepublishOnly": "npm run verify && npm run build",
     "preview": "vite preview"
   },
   "author": "",
