@@ -11,9 +11,9 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
-      "require": "./dist/index.umd.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.umd.js"
     }
   },
   "scripts": {
@@ -47,12 +47,14 @@
     "@types/node": "^25.2.3",
     "@types/react": "^19.2.14",
     "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "@vitest/ui": "^4.0.18",
     "autoprefixer": "^10.4.24",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "jsdom": "^28.1.0",
     "msw": "^2.12.10",
     "playwright": "^1.58.2",
     "postcss": "^8.5.2",
