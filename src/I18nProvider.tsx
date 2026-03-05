@@ -4,6 +4,7 @@ import i18n, { Resource } from 'i18next';
 import { initReactI18next, I18nextProvider } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { useTranslation } from 'react-i18next';
+import { Trans } from 'react-i18next';
 
 export interface I18nProviderProps {
   resources?: Resource;
@@ -55,3 +56,4 @@ export function I18nProvider({
 }
 
 export { useTranslation };
+export { Trans } from 'react-i18next';
