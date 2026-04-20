@@ -148,7 +148,7 @@ jobs:
             -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
             -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
             -Dsonar.sources=src
-            -Dsonar.tests=test
+            -Dsonar.tests=tests
             -Dsonar.test.inclusions=**/*.spec.ts,**/*.test.ts
             -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/coverage/**,**/*.d.ts
             -Dsonar.coverage.exclusions=**/*.spec.ts,**/*.test.ts,**/index.ts
