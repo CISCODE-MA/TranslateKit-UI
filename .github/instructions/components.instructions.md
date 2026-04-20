@@ -7,6 +7,7 @@
 ## 🎯 Component Architecture
 
 ### Component Structure
+
 ```
 ComponentName/
   ├── ComponentName.tsx       # Main component
@@ -16,6 +17,7 @@ ComponentName/
 ```
 
 ### I18n Component Template
+
 ```typescript
 import React from 'react';
 import { useTranslation } from '../hooks/useTranslation';
@@ -65,6 +67,7 @@ LanguageSelector.displayName = 'LanguageSelector';
 ## 📝 Props Standards
 
 ### I18n Component Props
+
 ```typescript
 export interface LanguageSelectorProps {
   /** Available languages */
@@ -98,6 +101,7 @@ export interface Language {
 ## ♿ Accessibility (A11y)
 
 ### Language Selector Accessibility
+
 ```typescript
 // ✅ Good - Accessible language selector
 <div role="navigation" aria-label="Language selection">
@@ -132,16 +136,18 @@ export interface Language {
 ```
 
 ### RTL (Right-to-Left) Support
+
 ```typescript
 // Detect and apply text direction
 useEffect(() => {
-  const lang = languages.find(l => l.code === currentLanguage);
+  const lang = languages.find((l) => l.code === currentLanguage);
   document.documentElement.dir = lang?.dir || 'ltr';
   document.documentElement.lang = currentLanguage;
 }, [currentLanguage]);
 ```
 
 ### Required Accessibility Features
+
 - ✅ `lang` attribute on HTML elements
 - ✅ `dir` attribute for RTL languages
 - ✅ Proper labels for language selectors
@@ -153,18 +159,19 @@ useEffect(() => {
 ## 🎨 Theming & Styling
 
 ### RTL-Aware Styles
+
 ```typescript
 // Use logical properties for RTL support
 const styles = css`
-  margin-inline-start: 1rem;  /* Instead of margin-left */
+  margin-inline-start: 1rem; /* Instead of margin-left */
   padding-inline-end: 0.5rem; /* Instead of padding-right */
   border-inline-start: 1px solid; /* Instead of border-left */
-  
+
   /* For directional specific styles */
   [dir='rtl'] & {
     text-align: right;
   }
-  
+
   [dir='ltr'] & {
     text-align: left;
   }
@@ -172,6 +179,7 @@ const styles = css`
 ```
 
 ### Language-Specific Font Loading
+
 ```typescript
 const fontFamilies = {
   en: "'Inter', sans-serif",
@@ -191,6 +199,7 @@ const getLanguageFont = (lang: string) => {
 ## 🧪 Component Testing
 
 ### Test Coverage Requirements
+
 ```typescript
 describe('LanguageSelector', () => {
   const mockLanguages: Language[] = [
@@ -207,7 +216,7 @@ describe('LanguageSelector', () => {
         onLanguageChange={jest.fn()}
       />
     );
-    
+
     expect(screen.getByRole('option', { name: /English/ })).toBeInTheDocument();
     expect(screen.getByRole('option', { name: /العربية/ })).toBeInTheDocument();
   });
@@ -221,12 +230,12 @@ describe('LanguageSelector', () => {
         onLanguageChange={onLanguageChange}
       />
     );
-    
+
     await userEvent.selectOptions(
       screen.getByRole('combobox'),
       screen.getByRole('option', { name: /Español/ })
     );
-    
+
     expect(onLanguageChange).toHaveBeenCalledWith('es');
   });
 
@@ -239,7 +248,7 @@ describe('LanguageSelector', () => {
         showFlags
       />
     );
-    
+
     expect(screen.getByText(/🇸🇦/)).toBeInTheDocument();
   });
 
@@ -251,9 +260,9 @@ describe('LanguageSelector', () => {
         onLanguageChange={jest.fn()}
       />
     );
-    
+
     expect(document.documentElement.dir).toBe('ltr');
-    
+
     rerender(
       <LanguageSelector
         availableLanguages={mockLanguages}
@@ -261,7 +270,7 @@ describe('LanguageSelector', () => {
         onLanguageChange={jest.fn()}
       />
     );
-    
+
     // Component should trigger dir change
     expect(document.documentElement.dir).toBe('rtl');
   });
@@ -269,6 +278,7 @@ describe('LanguageSelector', () => {
 ```
 
 ### Translation Hook Testing
+
 ```typescript
 describe('useTranslation', () => {
   it('returns translated text', () => {
@@ -279,7 +289,7 @@ describe('useTranslation', () => {
         </I18nProvider>
       ),
     });
-    
+
     expect(result.current.t('common.hello')).toBe('Hello');
   });
 
@@ -300,6 +310,7 @@ describe('useTranslation', () => {
 ## 🔄 State Management
 
 ### I18n Context Provider
+
 ```typescript
 import { createContext, useContext, useState, useCallback } from 'react';
 
@@ -330,18 +341,18 @@ export const I18nProvider: React.FC<{
   const t = useCallback((key: string, params?: Record<string, any>) => {
     const keys = key.split('.');
     let value = translations[locale];
-    
+
     for (const k of keys) {
       value = value?.[k];
     }
-    
+
     if (typeof value !== 'string') return key;
-    
+
     // Simple interpolation
     if (params) {
       return value.replace(/\{\{(\w+)\}\}/g, (_, key) => params[key] || '');
     }
-    
+
     return value;
   }, [locale, translations]);
 
@@ -368,6 +379,7 @@ export const useTranslation = () => {
 ## 📦 Component Exports
 
 ### Public API (index.ts)
+
 ```typescript
 // Export provider and hooks
 export { I18nProvider, useTranslation } from './I18nContext';
@@ -386,6 +398,7 @@ export type { Language, I18nConfig, TranslationKey } from './types';
 ## 🚫 Anti-Patterns to Avoid
 
 ### ❌ Hardcoded Text
+
 ```typescript
 // Bad - Hardcoded English text
 <button>Click Me</button>
@@ -395,6 +408,7 @@ export type { Language, I18nConfig, TranslationKey } from './types';
 ```
 
 ### ❌ Ignoring RTL
+
 ```typescript
 // Bad - Assumes LTR
 <div style={{ textAlign: 'left', marginLeft: 20 }}>
@@ -404,6 +418,7 @@ export type { Language, I18nConfig, TranslationKey } from './types';
 ```
 
 ### ❌ Date/Number Formatting Without Locale
+
 ```typescript
 // Bad - Uses default locale
 const formatted = new Date().toLocaleDateString();
